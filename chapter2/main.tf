@@ -24,3 +24,9 @@ resource "docker_container" "nginx" {
     external = 8000
   }
 }
+
+variable "container_name" {
+    default = "tutorial"
+    type = string
+    description = "The name of the container"
+}
