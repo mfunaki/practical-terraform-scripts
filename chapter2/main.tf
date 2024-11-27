@@ -12,7 +12,7 @@ provider "docker" {
 }
 
 resource "docker_image" "nginx" {
-    name = "nginx:latest"
+    name = "nginx:stable-alpine"
     keep_locally = true
 }
 
