@@ -1,8 +1,8 @@
 terraform {
   required_providers {
     docker = {
-        source = "kreuzwerker/docker"
-        version = ">= 3.0.0"
+      source  = "kreuzwerker/docker"
+      version = ">= 3.0.0"
     }
   }
 }
@@ -12,13 +12,13 @@ provider "docker" {
 }
 
 resource "docker_image" "nginx" {
-    name = "nginx:stable-alpine"
-    keep_locally = true
+  name         = "nginx:stable-alpine"
+  keep_locally = true
 }
 
 resource "docker_container" "nginx" {
   image = docker_image.nginx.image_id
-  name = var.container_name
+  name  = var.container_name
   ports {
     internal = 80
     external = 8000
@@ -26,7 +26,7 @@ resource "docker_container" "nginx" {
 }
 
 variable "container_name" {
-    default = "tutorial"
-    type = string
-    description = "The name of the container"
+  default     = "tutorial"
+  type        = string
+  description = "The name of the container"
 }
